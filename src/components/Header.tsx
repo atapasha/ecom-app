@@ -4,7 +4,14 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
 import Profile from "./Layout/Profile";
-import { FaShoppingCart, FaSearch, FaHeart, FaUser } from "react-icons/fa";
+import {
+  FaShoppingCart,
+  FaSearch,
+  FaHeart,
+  FaUser,
+  FaLock,
+  FaBars,
+} from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 import MenuTabs from "./MenuTabs";
 
@@ -14,10 +21,14 @@ const Header = () => {
 
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
-      <div className="container mx-auto px-4 flex items-center justify-between">
-        <div className="flex items-center gap-8 w-full">
-
+      <div className="xl:container mx-auto px-2  xl:px-4 flex items-center justify-between">
+        <div className="flex items-center space-x-4  xl:space-x-8">
           {/* Logo */}
+         
+           <div className="lg:hidden">
+
+          <FaBars  className="p-1 text-2xl font-normal"/>
+        </div>
           <Link href="/" className="flex items-center space-x-3 py-4">
             <FaShoppingCart className="text-[#f76411] text-3xl" />
             <div className="font-bold">
@@ -27,9 +38,8 @@ const Header = () => {
               <span className="text-3xl font-bold text-gray-800">ing</span>
             </div>
           </Link>
-
           {/* Navigation */}
-          <div className="flex items-center gap-8">
+          <div className="hidden lg:flex items-center space-x-4 xl:space-x-8 py-4">
             <Link
               href="/"
               className={`font-bold text-md ${
@@ -60,9 +70,11 @@ const Header = () => {
               Offers
             </Link>
           </div>
+        </div>
 
+        <div className="hidden lg:flex items-center space-x-3 xl:space-x-6">
           {/* Search */}
-          <div className="relative flex-1 max-w-md">
+          <div className="relative">
             <input
               type="text"
               placeholder="Search..."
@@ -71,19 +83,21 @@ const Header = () => {
             <FaSearch className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400" />
           </div>
 
-          {/* Right Menu */}
-          <div className="flex items-center gap-6">
-
-            {/* Language */}
-            <div className="relative group py-4">
-              <div className="flex items-center gap-2 cursor-pointer">
+         
+             {/* Language */} 
+            <div className="relative group me-4 py-4">
+              <div className="flex items-center space-x-2 cursor-pointer">
                 <img src="/english.png" alt="English" className="h-5 w-auto" />
                 <MdOutlineKeyboardArrowDown className="text-xl" />
               </div>
 
               <div className="absolute top-14 right-0 w-40 bg-white rounded shadow-md hidden group-hover:block z-50">
                 <button className="flex items-center gap-3 px-4 py-2 w-full hover:bg-gray-100">
-                  <img src="/english.png" alt="English" className="h-5 w-auto" />
+                  <img
+                    src="/english.png"
+                    alt="English"
+                    className="h-5 w-auto"
+                  />
                   <span>English</span>
                 </button>
               </div>
@@ -96,7 +110,7 @@ const Header = () => {
             </Link>
 
             {/* User */}
-            <div className="relative group py-4">
+            <div className="relative group me-4 py-4">
               <div className="flex items-center gap-2 cursor-pointer">
                 <FaUser className="text-black text-xl" />
                 <MdOutlineKeyboardArrowDown className="text-xl" />
@@ -122,12 +136,24 @@ const Header = () => {
                     </Link>
                   </div>
                 ) : (
-                  <Profile user={{ name: "Ata Pasha", phone: "123-456-7890",avatarUrl:"/profile.png" }} />
+                  <Profile
+                    user={{
+                      name: "Ata Pasha",
+                      phone: "123-456-7890",
+                      avatarUrl: "/profile.png",
+                    }}
+                  />
                 )}
               </div>
             </div>
-
+          
+          <div className="bg-black p-3 rounded-full cursor-pointer">
+            <FaLock className="text-white text-xl" />
           </div>
+        </div>
+        <div className="lg:hidden">
+
+          <FaSearch  className="p-1 text-2xl"/>
         </div>
       </div>
     </div>

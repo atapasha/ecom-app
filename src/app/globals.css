@@ -24,3 +24,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.banner .slick-dots{
+  bottom: 10px !important;
+
+}
+
+.banner .slick-next{
+  right: 15px !important;
+  
+}
+
+.banner .slick-prev{
+  left: 15px !important;
+  z-index:100;
+  
+}
