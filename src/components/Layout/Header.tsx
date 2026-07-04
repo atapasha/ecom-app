@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React, { useState } from "react";
-import Profile from "./Layout/Profile";
+ 
 import {
   FaShoppingCart,
   FaSearch,
@@ -13,24 +13,25 @@ import {
   FaBars,
 } from "react-icons/fa";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
-import MenuTabs from "./MenuTabs";
-
-const Header = () => {
+ import Profile from "./Profile";
+import MenuTabs from "../MenuTabs";
+ const Header = () => {
   const pathname = usePathname();
   const [isLoggedIn, setIsLoggedIn] = useState(true); // Simulating user login state
 
   return (
     <div className="bg-white shadow-md sticky top-0 z-50">
       <div className="xl:container mx-auto px-2  xl:px-4 flex items-center justify-between">
-        <div className="flex items-center space-x-4  xl:space-x-8">
-          {/* Logo */}
-         
-           <div className="lg:hidden">
+               <div className="block  lg:hidden">
 
-          <FaBars  className="p-1 text-2xl font-normal"/>
+          <FaBars  className="p-1 text-2xl font-normal block  lg:hidden"/>
         </div>
+        <div className="flex items-center space-x-4  xl:space-x-8" >
+    
+   
+    
           <Link href="/" className="flex items-center space-x-3 py-4">
-            <FaShoppingCart className="text-[#f76411] text-3xl" />
+              {/* Logo */}<FaShoppingCart className="text-[#f76411] text-3xl" />
             <div className="font-bold">
               <span className="text-3xl font-bold text-[#f23e14]">S</span>
               <span className="text-2xl font-bold text-orange-600">hop</span>

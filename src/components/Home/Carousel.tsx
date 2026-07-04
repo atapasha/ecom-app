@@ -23,7 +23,7 @@ const Carousel = () => {
     <div className="xl:container banner mx-auto overflow-hidden px-2 xl:px-4 my-4">
       <Slider {...settings}>
         {slides.map((item, index) => (
-          <div key={index} className="h-[400px]">
+          <div key={index} className="h-[300px] lg:h-[400px]">
             <img
               src={item.image}
               alt={item.alt}
